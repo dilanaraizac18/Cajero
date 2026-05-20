@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package cajero.ExamenPractico.ML;
 
 import java.util.List;
 
-/**
- *
- * @author digis
- */
 public class Usuario {
     
     private int IdUsuario;
@@ -18,11 +11,11 @@ public class Usuario {
     private String ApellidoMaterno;
     private String Correo;
     private String Password;
-    public List<Banco> banco;
+    public List<cajero.ExamenPractico.ML.Banco> banco;
     
     public Usuario(){}
 
-    public Usuario(int IdUsuario, String Nombre, String ApellidoPaterno, String ApellidoMaterno, String Correo, String Password, List<Banco> banco) {
+    public Usuario(int IdUsuario, String Nombre, String ApellidoPaterno, String ApellidoMaterno, String Correo, String Password, List<cajero.ExamenPractico.ML.Banco> banco) {
         this.IdUsuario = IdUsuario;
         this.Nombre = Nombre;
         this.ApellidoPaterno = ApellidoPaterno;
