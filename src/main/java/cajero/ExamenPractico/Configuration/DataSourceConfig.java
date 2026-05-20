@@ -4,15 +4,28 @@ package cajero.ExamenPractico.Configuration;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.sql.DataSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+@Configuration
 public class DataSourceConfig {
     
-    public static Connection getConecation() throws SQLException{
-        String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-        String user = "DAraizaPruebaCajero";
-        String password = "password1";
+      @Bean
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:orcl");
+        dataSource.setUsername("DAraizaPruebaCajero");
+        dataSource.setPassword("password1");
         
-        return DriverManager.getConnection(url, user, password);
+        return dataSource;
+    }
+
+    @Bean
+    public JdbcTemplate jdbcTemplate(DataSource dataSource){
+        return new JdbcTemplate(dataSource);
     }
     
 }

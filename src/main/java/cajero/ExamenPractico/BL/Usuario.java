@@ -4,13 +4,26 @@ import cajero.ExamenPractico.Configuration.DataSourceConfig;
 import cajero.ExamenPractico.ML.Result;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.CallableStatementCallback;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
-public class Usuario {
+@Repository
+public class Usuario implements IUsuario{
+    
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    
 
-    public static Result Add(cajero.ExamenPractico.ML.Usuario usuario) {
-        Result result = new Result();
 
-        try (Connection context = DataSourceConfig.getConecation(); CallableStatement callableStatement = context.prepareCall("{CALL UsuarioADD (?,?,?,?,?,?)}")) {
+    @Override
+    public Result Add(cajero.ExamenPractico.ML.Usuario usuario) {
+        
+                Result result = new Result();
+
+        try {
+            jdbcTemplate.execute("{CALL UsuarioADD (?,?,?,?,?,?)}", (CallableStatementCallback<Boolean>) callableStatement ->{
 
             callableStatement.setString(1, usuario.getNombre());
             callableStatement.setString(2, usuario.getApellidoPaterno());
@@ -19,14 +32,13 @@ public class Usuario {
             callableStatement.setString(5, usuario.getPassword());
             callableStatement.setInt(6, usuario.getBanco().get(0).getIdBanco());
             
-            int data = callableStatement.executeUpdate();
+            int rowAffected = 0;
+                rowAffected = callableStatement.executeUpdate();
 
-            if (data != 0) {
-                result.correct = true;
-            } else {
-                result.correct = false;
-                result.errorMessage = "No se ha logrado insertar los datos dentro de la base de datos";
-            }
+                result.correct = rowAffected != 0 ? true : false;
+
+                return true;
+            });
 
         } catch (Exception ex) {
             result.correct = false;
@@ -37,5 +49,7 @@ public class Usuario {
 
         return result;
     }
+
+   
 
 }

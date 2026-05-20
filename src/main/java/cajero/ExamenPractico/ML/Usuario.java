@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Usuario {
     
-    private int IdUsuario;
+    private Integer IdUsuario;
     private String Nombre;
     private String ApellidoPaterno;
     private String ApellidoMaterno;
@@ -15,7 +15,7 @@ public class Usuario {
     
     public Usuario(){}
 
-    public Usuario(int IdUsuario, String Nombre, String ApellidoPaterno, String ApellidoMaterno, String Correo, String Password, List<cajero.ExamenPractico.ML.Banco> banco) {
+    public Usuario(Integer IdUsuario, String Nombre, String ApellidoPaterno, String ApellidoMaterno, String Correo, String Password, List<cajero.ExamenPractico.ML.Banco> banco) {
         this.IdUsuario = IdUsuario;
         this.Nombre = Nombre;
         this.ApellidoPaterno = ApellidoPaterno;
@@ -25,11 +25,11 @@ public class Usuario {
         this.banco = banco;
     }
 
-    public int getIdUsuario() {
+    public Integer getIdUsuario() {
         return IdUsuario;
     }
 
-    public void setIdUsuario(int IdUsuario) {
+    public void setIdUsuario(Integer IdUsuario) {
         this.IdUsuario = IdUsuario;
     }
 
