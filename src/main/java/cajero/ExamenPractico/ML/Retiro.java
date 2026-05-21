@@ -7,8 +7,9 @@ import java.util.List;
 public class Retiro {
     private int IdRetiro;
     private int Monto;
-    public Usuario usuario;
-    public Cajero cajero;
+    
+    private Usuario usuario;
+    private Cajero cajero;
     
     public Retiro(){}
 

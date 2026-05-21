@@ -26,6 +26,10 @@ public class RetirarBL implements IRetiro{
                 callableStatement.setInt(2, retiro.getUsuario().getIdUsuario());
                 callableStatement.setInt(3, retiro.getCajero().getIdCajero());
                 
+                callableStatement.execute();
+                
+                result.correct = true;
+                
                 return true;
         });
             
