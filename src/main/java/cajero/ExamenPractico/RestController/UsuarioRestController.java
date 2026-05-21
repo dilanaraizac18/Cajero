@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
     public class UsuarioRestController {
         
          @Autowired
-    private cajero.ExamenPractico.BL.Usuario usuarioBL;
+    private cajero.ExamenPractico.BL.UsuarioBL usuarioBL;
 
         @PostMapping("/add")
         public Result Add(@RequestBody cajero.ExamenPractico.ML.Usuario usuario) {

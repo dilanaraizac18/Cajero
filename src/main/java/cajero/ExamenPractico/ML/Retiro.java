@@ -7,12 +7,12 @@ import java.util.List;
 public class Retiro {
     private int IdRetiro;
     private int Monto;
-    public List<Usuario> usuario;
+    public Usuario usuario;
     public Cajero cajero;
     
     public Retiro(){}
 
-    public Retiro(int IdRetiro, int Monto, List<Usuario> usuario, Cajero cajero) {
+    public Retiro(int IdRetiro, int Monto, Usuario usuario, Cajero cajero) {
         this.IdRetiro = IdRetiro;
         this.Monto = Monto;
         this.usuario = usuario;
@@ -35,11 +35,11 @@ public class Retiro {
         this.Monto = Monto;
     }
 
-    public List<Usuario> getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(List<Usuario> usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
