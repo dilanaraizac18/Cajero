@@ -2,9 +2,11 @@
 package cajero.ExamenPractico.BL;
 
 import cajero.ExamenPractico.ML.Result;
+import cajero.ExamenPractico.ML.Retiro;
 
 
 public interface IRetiro {
-    Result Retirar(int IdUsuario, int idCajero, int monto);
+    Result Retirar(Retiro retiro);
+    Result Rellenar();
     
 }

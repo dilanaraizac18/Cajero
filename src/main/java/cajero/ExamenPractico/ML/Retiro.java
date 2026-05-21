@@ -5,7 +5,7 @@ import java.util.List;
 
 
 public class Retiro {
-    private int IdRetiro;
+    private Integer IdRetiro;
     private int Monto;
     
     private Usuario usuario;
@@ -13,18 +13,18 @@ public class Retiro {
     
     public Retiro(){}
 
-    public Retiro(int IdRetiro, int Monto, Usuario usuario, Cajero cajero) {
+    public Retiro(Integer IdRetiro, int Monto, Usuario usuario, Cajero cajero) {
         this.IdRetiro = IdRetiro;
         this.Monto = Monto;
         this.usuario = usuario;
         this.cajero = cajero;
     }
 
-    public int getIdRetiro() {
+    public Integer getIdRetiro() {
         return IdRetiro;
     }
 
-    public void setIdRetiro(int IdRetiro) {
+    public void setIdRetiro(Integer IdRetiro) {
         this.IdRetiro = IdRetiro;
     }
 
