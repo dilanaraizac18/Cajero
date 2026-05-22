@@ -6,6 +6,7 @@ import cajero.ExamenPractico.ML.Result;
 
 public interface IUsuario {
     Result Add(cajero.ExamenPractico.ML.Usuario Usuario);
+    Result GetByEmail(String correo);
 
     
 }
