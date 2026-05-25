@@ -6,24 +6,24 @@ import java.util.List;
 
 public class Banco {
     
-    private int IdBanco;
+    private Integer IdBanco;
     private String Nombre;
     private List<cajero.ExamenPractico.ML.Usuario> usuarios;
     
     
     public Banco(){}
 
-    public Banco(int IdBanco, String Nombre, List<cajero.ExamenPractico.ML.Usuario> usuarios) {
+    public Banco(Integer IdBanco, String Nombre, List<cajero.ExamenPractico.ML.Usuario> usuarios) {
         this.IdBanco = IdBanco;
         this.Nombre = Nombre;
         this.usuarios = usuarios;
     }
 
-    public int getIdBanco() {
+    public Integer getIdBanco() {
         return IdBanco;
     }
 
-    public void setIdBanco(int IdBanco) {
+    public void setIdBanco(Integer IdBanco) {
         this.IdBanco = IdBanco;
     }
 

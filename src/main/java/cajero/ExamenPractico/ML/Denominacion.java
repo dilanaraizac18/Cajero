@@ -4,7 +4,7 @@ package cajero.ExamenPractico.ML;
 
 public class Denominacion {
     
-    public int IdDenominacion;
+    public Integer IdDenominacion;
     public int Cantidad;
     public int Valor;
     public Cajero cajero;
@@ -12,7 +12,7 @@ public class Denominacion {
     
     public Denominacion(){}
 
-    public Denominacion(int IdDenominacion, int Cantidad, int Valor, Cajero cajero, TipoDenominacion tipo) {
+    public Denominacion(Integer IdDenominacion, int Cantidad, int Valor, Cajero cajero, TipoDenominacion tipo) {
         this.IdDenominacion = IdDenominacion;
         this.Cantidad = Cantidad;
         this.Valor = Valor;
@@ -20,11 +20,11 @@ public class Denominacion {
         this.tipo = tipo;
     }
 
-    public int getIdDenominacion() {
+    public Integer getIdDenominacion() {
         return IdDenominacion;
     }
 
-    public void setIdDenominacion(int IdDenominacion) {
+    public void setIdDenominacion(Integer IdDenominacion) {
         this.IdDenominacion = IdDenominacion;
     }
 

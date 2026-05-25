@@ -5,31 +5,31 @@ import java.util.List;
 
 
 public class Cajero {
-    private int IdCajero;
-    private int SaldoTotal;
+    private Integer IdCajero;
+    private Integer SaldoTotal;
     public List<Banco> banco;
     
     
     public Cajero(){}
     
-    public Cajero(int IdCajero, int SaldoTotal){
+    public Cajero(Integer IdCajero, Integer SaldoTotal){
         this.IdCajero = IdCajero;
         this.SaldoTotal = SaldoTotal;
     }
 
-    public int getIdCajero() {
+    public Integer getIdCajero() {
         return IdCajero;
     }
 
-    public void setIdCajero(int IdCajero) {
+    public void setIdCajero(Integer IdCajero) {
         this.IdCajero = IdCajero;
     }
 
-    public int getSaldoTotal() {
+    public Integer getSaldoTotal() {
         return SaldoTotal;
     }
 
-    public void setSaldoTotal(int SaldoTotal) {
+    public void setSaldoTotal(Integer SaldoTotal) {
         this.SaldoTotal = SaldoTotal;
     }
 

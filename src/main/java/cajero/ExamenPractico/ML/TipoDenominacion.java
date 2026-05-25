@@ -2,7 +2,7 @@
 package cajero.ExamenPractico.ML;
 
 
-class TipoDenominacion{
+public class TipoDenominacion{
     
     public int IdDenominacion;
     public String Nombre;
