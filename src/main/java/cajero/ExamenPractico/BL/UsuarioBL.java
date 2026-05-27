@@ -3,8 +3,11 @@ package cajero.ExamenPractico.BL;
 import java.sql.Types;
 import cajero.ExamenPractico.Configuration.DataSourceConfig;
 import cajero.ExamenPractico.ML.Result;
+import cajero.ExamenPractico.ML.Usuario;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.CallableStatementCallback;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -72,6 +75,47 @@ public class UsuarioBL implements IUsuario {
             result.correct = false;
             result.errorMessage = ex.getLocalizedMessage();
             result.ex = ex;
+        }
+
+        return result;
+
+    }
+
+    @Override
+    public Result Clientes() {
+        Result result = new Result();
+
+        try {
+
+            jdbcTemplate.execute("{CALL clientes(?)}", (CallableStatementCallback<Boolean>) callableStatement -> {
+
+                callableStatement.registerOutParameter(1,java.sql.Types.REF_CURSOR);
+                callableStatement.execute();
+                
+                ResultSet resultSet = (ResultSet) callableStatement.getObject(1);
+                
+                result.objects = new ArrayList<>();
+                
+                while(resultSet.next()){
+                    Usuario usuarioSet = new Usuario();
+                    
+                    usuarioSet.setNombre(resultSet.getString("nombre"));
+                    usuarioSet.setApellidoMaterno(resultSet.getString("apellidoMaterno"));
+                    usuarioSet.setApellidoPaterno(resultSet.getString("apellidoPaterno"));
+                    usuarioSet.setCorreo(resultSet.getString("correo"));
+                    
+                    result.correct = true;
+                    
+                    result.objects.add(usuarioSet);
+                }
+                
+                
+                return true;
+
+            }
+            );
+        } catch (Exception ex) {
+
         }
 
         return result;

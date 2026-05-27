@@ -18,5 +18,11 @@ import org.springframework.web.bind.annotation.*;
 
             return usuarioBL.Add(usuario);
         }
+        
+        
+        @GetMapping("/clientes")
+        public Result GetClientes(){
+            return usuarioBL.Clientes();
+        }
     }
 

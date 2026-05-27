@@ -1,6 +1,7 @@
 
 package cajero.ExamenPractico.BL;
 
+import cajero.ExamenPractico.ML.Cajero;
 import cajero.ExamenPractico.ML.Denominacion;
 import cajero.ExamenPractico.ML.Result;
 import cajero.ExamenPractico.ML.Retiro;
@@ -89,11 +90,17 @@ public class RetirarBL implements IRetiro{
             while(resultSet.next()){
                 Denominacion denominacion = new Denominacion();
                 
+                denominacion.setIdDenominacion(resultSet.getInt("iddenominacion"));
                 denominacion.setCantidad(resultSet.getInt("cantidad"));
                 denominacion.setValor(resultSet.getInt("valor"));
                 denominacion.tipo = new TipoDenominacion();
                 
                 denominacion.tipo.setNombre(resultSet.getString("Tipo"));
+                denominacion.cajero = new Cajero();
+                
+                denominacion.cajero.setIdCajero(resultSet.getInt("idCajero"));
+                
+                result.correct = true;
                 
                 result.objects.add(denominacion);
             }
