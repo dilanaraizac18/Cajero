@@ -11,10 +11,12 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.CallableStatementCallback;
 import org.springframework.jdbc.core.JdbcTemplate;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class UsuarioBL implements IUsuario {
+    
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -31,6 +33,9 @@ public class UsuarioBL implements IUsuario {
                 callableStatement.setString(2, usuario.getApellidoPaterno());
                 callableStatement.setString(3, usuario.getApellidoMaterno());
                 callableStatement.setString(4, usuario.getCorreo());
+                
+//                String passwordEncriptada = passwordEncoder.encode(usuario.getPassword());
+                
                 callableStatement.setString(5, usuario.getPassword());
                 callableStatement.setInt(6, usuario.getBanco().get(0).getIdBanco());
 
@@ -64,9 +69,19 @@ public class UsuarioBL implements IUsuario {
 
                 callableStatement.registerOutParameter(2, Types.VARCHAR);
                 callableStatement.registerOutParameter(3, Types.VARCHAR);
+                
+                callableStatement.execute();
+                
+                Usuario usuario = new Usuario();
 
-                String nombre = callableStatement.getString(2);
-                String password = callableStatement.getString(3);
+                usuario.setCorreo(correo);
+                usuario.setNombre(callableStatement.getString(2));
+                usuario.setPassword(callableStatement.getString(3));
+                
+                result.object= usuario;
+                result.correct = true;
+
+
 
                 return true;
             });
