@@ -27,7 +27,7 @@ public class RetirarBL implements IRetiro{
         try{
             jdbcTemplate.execute("{Call RetirarDinero (?,?,?,?)}", (CallableStatementCallback<Boolean>)callableStatement -> {
                 
-                callableStatement.setInt(1, retiro.getMonto());
+                callableStatement.setDouble(1, retiro.getMonto());
                 callableStatement.setInt(2, retiro.getUsuario().getIdUsuario());
                 callableStatement.setInt(3, retiro.getCajero().getIdCajero());
                 callableStatement.registerOutParameter(4, Types.VARCHAR);
@@ -92,7 +92,7 @@ public class RetirarBL implements IRetiro{
                 
                 denominacion.setIdDenominacion(resultSet.getInt("iddenominacion"));
                 denominacion.setCantidad(resultSet.getInt("cantidad"));
-                denominacion.setValor(resultSet.getInt("valor"));
+                denominacion.setValor(resultSet.getDouble("valor"));
                 denominacion.tipo = new TipoDenominacion();
                 
                 denominacion.tipo.setNombre(resultSet.getString("Tipo"));

@@ -6,13 +6,13 @@ public class Denominacion {
     
     public Integer IdDenominacion;
     public int Cantidad;
-    public int Valor;
+    public double Valor;
     public Cajero cajero;
     public TipoDenominacion tipo;
     
     public Denominacion(){}
 
-    public Denominacion(Integer IdDenominacion, int Cantidad, int Valor, Cajero cajero, TipoDenominacion tipo) {
+    public Denominacion(Integer IdDenominacion, int Cantidad, double Valor, Cajero cajero, TipoDenominacion tipo) {
         this.IdDenominacion = IdDenominacion;
         this.Cantidad = Cantidad;
         this.Valor = Valor;
@@ -36,11 +36,11 @@ public class Denominacion {
         this.Cantidad = Cantidad;
     }
 
-    public int getValor() {
+    public double getValor() {
         return Valor;
     }
 
-    public void setValor(int Valor) {
+    public void setValor(double Valor) {
         this.Valor = Valor;
     }
 

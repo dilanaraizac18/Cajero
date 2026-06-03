@@ -33,7 +33,7 @@ public class CajeroBL implements ICajero {
                 
                 Cajero cajero = new Cajero();
                 
-                cajero.setSaldoTotal(callableStatement.getInt(1));
+                cajero.setSaldoTotal(callableStatement.getDouble(1));
                 
                 result.object = cajero;
                     

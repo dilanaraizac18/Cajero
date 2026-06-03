@@ -6,13 +6,13 @@ import java.util.List;
 
 public class Cajero {
     private Integer IdCajero;
-    private Integer SaldoTotal;
+    private Double SaldoTotal;
     public List<Banco> banco;
     
     
     public Cajero(){}
     
-    public Cajero(Integer IdCajero, Integer SaldoTotal){
+    public Cajero(Integer IdCajero, Double SaldoTotal){
         this.IdCajero = IdCajero;
         this.SaldoTotal = SaldoTotal;
     }
@@ -25,11 +25,11 @@ public class Cajero {
         this.IdCajero = IdCajero;
     }
 
-    public Integer getSaldoTotal() {
+    public Double getSaldoTotal() {
         return SaldoTotal;
     }
 
-    public void setSaldoTotal(Integer SaldoTotal) {
+    public void setSaldoTotal(Double SaldoTotal) {
         this.SaldoTotal = SaldoTotal;
     }
 
